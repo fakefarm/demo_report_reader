@@ -1,0 +1,32 @@
+<h1 class="title">
+  <%= @payment.customer.name %>
+</h1>
+
+<div class="columns">
+  <div class="column is-4">
+      <table class='table is-fullwidth'>
+        <tr>
+          <td>Report Date</td>
+          <td class='has-text-right'><%= @payment.report_date%>
+          </td>
+        </tr>
+        <tr>
+          <td>Report Name</td>
+          <td class='has-text-right'><%= @payment.report_name %></td>
+        </tr>
+        <tr>
+          <td>Codes</td>
+          <td class='has-text-right'><%= @payment.code %></td>
+        </tr>
+        </tr>
+      </table>
+  </div>
+  <div class="column is-4">
+    <% @payment.uploads.each do |img| %>
+    <div class="box">
+      <%= image_tag img.report  %>
+      <%= link_to 'download', img.report, download: true, class: 'button is-small is-primary' %>
+    </div>
+    <% end %>
+  </div>
+</div>

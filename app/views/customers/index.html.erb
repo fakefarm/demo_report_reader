@@ -1,0 +1,10 @@
+<h1>Customers</h1>
+
+
+<div class="section">
+  <% @customers.each do |customer| %>
+    <h2 class='title'>
+      <%= link_to customer.name, customer %>
+    </h2>
+  <% end %>
+</div>

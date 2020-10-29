@@ -9,7 +9,22 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body class='container'>
+    <section class="hero">
+      <div class="hero-body">
+        <div class="container">
+          <h1 class="title">
+            Reporterizer
+          </h1>
+          <h2 class="subtitle">
+            Hello
+          </h2>
+        </div>
+      </div>
+    </section>
+    <main class='section'>
+      <%= render 'shared/nav' %>
+      <%= yield %>
+    </main>
   </body>
 </html>

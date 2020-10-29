@@ -1,0 +1,13 @@
+<div class="section">
+  <h1 class='title'>
+    <%= @customer.name %>
+  </h1>
+
+  <h2 class="title">Reports</h2>
+
+  <div class="section">
+    <% @reports.each do |p| %>
+      <h3 class='sub-title'><%= link_to p.report_date, customer_report_path(p) %></h3>
+    <% end -%>
+  </div>
+</div>

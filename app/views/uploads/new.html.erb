@@ -1,0 +1,27 @@
+<p>
+  Hello, there! <br> do you have a report? Great! We would like to process it.
+</p>
+
+<%= form_with(model: @upload, local: true) do |form| %>
+  <% if @upload.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@upload.errors.count, "error") %> prohibited this upload from being saved:</h2>
+
+      <ul>
+        <% @upload.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :report %>
+    <%= form.file_field :report %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+
