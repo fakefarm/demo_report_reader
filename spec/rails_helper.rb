@@ -8,9 +8,7 @@ require File.expand_path('../config/environment', __dir__)
 
 Dir[Rails.root.join('spec/mocks/**/*.rb')].sort.each { |f| require f }
 
-if Rails.env.production?
-  abort('The Rails environment is running in production mode!')
-end
+abort('The Rails environment is running in production mode!') if Rails.env.production?
 
 require 'rspec/rails'
 
