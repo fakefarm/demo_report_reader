@@ -7,6 +7,5 @@ class ProcessReportJob < ApplicationJob
     id = args[0]
     Import.new(id)
     Generate.new(id).report
-    # Import.new(args[0])
   end
 end

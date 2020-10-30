@@ -3,11 +3,11 @@
 class Import
   def initialize(upload_id, customer: Customer, extract: Extract, payment: Payment, upload: Upload, line: Line)
     @upload_id = upload_id
+    @upload = upload
+    @extract = extract
     @customer = customer
     @line = line
-    @extract = extract
     @payment = payment
-    @upload = upload
     run
   end
 

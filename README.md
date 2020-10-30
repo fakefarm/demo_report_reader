@@ -1,25 +1,123 @@
-Task:
-Create a Rails app that will:
-1) Allow a user to upload a png image
-2) Use tesseract to extract and store the hOCR data for that image (can use the gem, can be done inline, bonus for async ala Resque)
-3) Mark up the image with bounding boxes around the words found from the hOCR data , should use imagemagick (gem or roll your own)
-4) Store the new image (and old image) and allow it to be downloaded
-5) Allow the user to search for possible words on the image via a text input (strech goal)
-6) Use Service Object when appropriate
+# Report reader
 
-Expections:
-* Use Rails 4.2, or 5+
-* Use RSPEC for testing
-* User interface not a top priority
-* No user login needed, etc, just a bare bones type app
+A demo app to upload files using active storage, process files in a background job, and recreate them with visual modifications. Specific extraction work is done through Tesseract, and visual creation using imageMagick.
 
-Gems to use:
-* https://github.com/dannnylo/rtesseract (simple wrapper around tesseract)
-* https://github.com/thoughtbot/paperclip or ActiveStorage (for file persistence)
-* https://github.com/rmagick/rmagick (for image manipulation)
+## watch the demo video
 
-Other links:
-* Example image: https://www.dropbox.com/s/s95tlxl24zlni2w/example_remit.png?dl=0
-* Dade GUI example: https://www.dropbox.com/s/2zhl6skrbkqua0z/dade_screen.png?dl=0
-* https://github.com/tesseract-ocr/tesseract
-* https://hackernoon.com/the-3-tenets-of-service-objects-c936b891b3c2
+https://youtu.be/NUjO0AU21Ag
+
+## try it out
+
+Install clone
+
+```
+  bundle install
+```
+
+```
+  bundle exec rails
+```
+
+## run the specs
+
+```
+  bundle exec rspec
+```
+
+### Output
+```
+Generate
+  Creates an Upload
+  Requires a Payment
+
+Row
+  API
+    #to_h
+    #net
+    #date
+    #invoice
+    #discount
+    #description
+    #amount
+
+ProcessReportJob
+  #perform_later
+
+Payment
+  is expected to have db column named report_name
+  is expected to have db column named report_date
+  is expected to have db column named description
+  is expected to have db column named code
+  is expected to have db column named page
+  is expected to have db column named date
+  is expected to have an index on :customer_id
+
+Extract
+  API
+    #to_h
+    #company
+    #rows
+  ( private )
+    #description
+    #date
+    #lines
+    #convert
+    #report_page
+    #report_name
+    #report_date
+
+Searches
+  GET /searches/new
+    ok
+  GET /searches
+    ok
+
+Payments
+  GET /payments
+    ok
+
+Customers
+  GET /customers
+    ok
+
+Import
+  Creates a Payment Report
+  Extracts Report from Upload
+  Creates a Customer
+  Assigns a Payment to Upload
+  Creates Payment Lines
+
+SearchService
+  string
+    is expected to be an instance of Payment
+  code
+    is expected to be an instance of Payment
+  date
+    is expected to be an instance of Payment
+  decimal
+    is expected to be an instance of Payment
+
+Search
+  is expected to have db column named term
+
+Upload
+  is expected to have db column named payment_id
+  is expected to have an index on :payment_id
+
+Customer
+  is expected to have db column named name
+  is expected to have an index on :name
+
+Line
+  is expected to have an index on :payment_id
+  is expected to have db column named payment_id
+  is expected to have db column named discount
+  is expected to have db column named description
+  is expected to have db column named net
+  is expected to have db column named invoice
+  is expected to have db column named amount
+  is expected to have db column named date
+
+Finished in 44.95 seconds (files took 3.88 seconds to load)
+53 examples, 0 failures
+```
