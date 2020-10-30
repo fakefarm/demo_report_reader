@@ -1,0 +1,26 @@
+<h1 class='title'>Search Results</h1>
+<div class="columns">
+  <div class="column">
+    <% if @search.present? && @reports.present?  %>
+      <% @reports.each do |q| %>
+        <%= link_to "report", customer_report_path(q, q.id) %>
+      <% end  %>
+    <% else  %>
+      <div>
+        Sorry, no reports match<%= @search.nil? ? "." : " #{@search.term}" %>
+      </div>
+    <% end -%>
+  </div>
+  <div class="column">
+    <h2 class='sub-title'>Recent Searches</h2>
+    <ul>
+      <% @searches.each do |search| %>
+        <li>
+          <%= search.term %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+
