@@ -8,22 +8,11 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
-  <body class='container'>
-    <section class="hero">
-      <div class="hero-body">
-        <div class="container">
-          <h1 class="title">
-            Reporterizer
-          </h1>
-          <h2 class="subtitle">
-            Hello
-          </h2>
-        </div>
-      </div>
-    </section>
-    <main class='section'>
+  <body>
+    <header class="section">
       <%= render 'shared/nav' %>
+    </header>
+    <main class='container main'>
       <%= yield %>
     </main>
   </body>

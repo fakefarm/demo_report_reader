@@ -10,7 +10,7 @@ RSpec.describe Generate do
 
   before { setup }
 
-  it 'payment' do
+  it 'Requires a Payment' do
     expect(subject.payment).to be_instance_of(Payment)
   end
 

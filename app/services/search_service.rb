@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class SearchService
-
   def initialize
     @results = []
     @term = Search.last.try(:term)
@@ -12,7 +11,7 @@ class SearchService
   end
 
   def query
-    return [] unless @term.present?
+    return [] if @term.blank?
 
     if string_search
       search_strings
@@ -34,27 +33,27 @@ class SearchService
   end
 
   def customers
-    query = Customer.where("name ILIKE ?", "%#{@term}%")
-    @results << query.map { |c| c.payments }.flatten.map { |p| p }.uniq
+    query = Customer.where('name ILIKE ?', "%#{@term}%")
+    @results << query.map(&:payments).flatten.map { |p| p }.uniq
   end
 
   def payments
     Payment.in_batches.each_record do |record|
-      %i(date report_date report_name page code description).each do |attr|
-        @results << record if match?(record,attr)
+      %i[date report_date report_name page code description].each do |attr|
+        @results << record if match?(record, attr)
       end
     end
   end
 
   def numeric_search
     Line.in_batches.each_record do |record|
-      %i(date invoice description discount amount net).each do |attr|
-        @results << record.payment if match?(record,attr)
+      %i[date invoice description discount amount net].each do |attr|
+        @results << record.payment if match?(record, attr)
       end
     end
   end
 
-  def match?(record,attr)
+  def match?(record, attr)
     record.send(attr).to_s.include?(@term)
   end
 

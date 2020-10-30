@@ -24,6 +24,16 @@ class Extract
     }
   end
 
+  def rows
+    lines.map { |line| @row.new(line) }
+  end
+
+  def company
+    header[0].split[0..2].join(' ')
+  end
+
+  private
+
   def import
     @import ||= @worker.new(@file)
   end
@@ -46,14 +56,6 @@ class Extract
 
   def lines
     body.select { |bling| bling.include?('$') }
-  end
-
-  def rows
-    lines.map { |line| @row.new(line) }
-  end
-
-  def company
-    header[0].split[0..2].join(' ')
   end
 
   def date

@@ -1,7 +1,13 @@
-<ul>
-  <li><%= link_to 'customers', customers_path %></li>
-  <li><%= link_to 'upload', new_upload_path %></li>
-  <li><%= link_to 'search', searches_path %></li>
-</ul>
-
 <p id="notice"><%= notice %></p>
+
+<nav class="navbar is-transparent">
+  <div class="navbar-brand">
+    <div class='title'>
+      <%= link_to 'RPRT$', '/' %>
+    </div>
+
+    <div><%= link_to 'customers', customers_path, class: "navbar-item" %></div>
+    <div><%= link_to 'upload', new_upload_path, class: "navbar-item" %></div>
+    <div><%= link_to 'search', new_search_path, class: "navbar-item" %></div>
+  </div>
+</nav>

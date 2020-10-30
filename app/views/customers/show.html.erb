@@ -1,13 +1,18 @@
 <div class="section">
-  <h1 class='title'>
+  <h2 class='title'>
     <%= @customer.name %>
-  </h1>
-
-  <h2 class="title">Reports</h2>
-
-  <div class="section">
-    <% @reports.each do |p| %>
-      <h3 class='sub-title'><%= link_to p.report_date, customer_report_path(p) %></h3>
-    <% end -%>
+  </h2>
+  <div class="columns">
+    <div class="column">
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi ut et eveniet aliquam, porro eos suscipit assumenda, enim tenetur sapiente, dolores quos. Tenetur eos, illum! Reprehenderit alias est itaque debitis.
+      </p>
+    </div>
+    <div class="column reports">
+      <h2 class="title">Reports</h2>
+        <% @reports.each do |p| %>
+          <h3 class='title'><%= link_to p.report_date, customer_report_path(p) %></h3>
+        <% end -%>
+    </div>
   </div>
 </div>

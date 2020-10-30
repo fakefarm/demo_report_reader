@@ -1,9 +1,9 @@
 <h1 class="title">
-  <%= @payment.customer.name %>
+  <%= link_to @payment.customer.name, @payment.customer %>
 </h1>
 
 <div class="columns">
-  <div class="column is-4">
+  <div class="column is-7">
       <table class='table is-fullwidth'>
         <tr>
           <td>Report Date</td>
@@ -21,7 +21,7 @@
         </tr>
       </table>
   </div>
-  <div class="column is-4">
+  <div class="column is-5">
     <% @payment.uploads.each do |img| %>
     <div class="box">
       <%= image_tag img.report  %>

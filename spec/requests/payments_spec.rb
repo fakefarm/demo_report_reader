@@ -8,10 +8,10 @@ RSpec.describe 'Payments', type: :request do
   before { setup }
 
   describe 'GET /payments' do
-    it 'code' do
+    it 'ok' do
       report_id = customer.payments.first.id
       get "/customers/#{customer.id}/reports/#{report_id}"
-      expect(response).to have_http_status(200)
+      expect(response).to have_http_status(:ok)
     end
   end
 end

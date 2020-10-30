@@ -8,7 +8,7 @@ RSpec.describe Import do
 
   subject { Import.new(upload.id) }
 
-  it 'Creates a customer' do
+  it 'Creates a Customer' do
     expect { subject.customer }.to change { Customer.count }.from(0).to(1)
   end
 
@@ -16,7 +16,7 @@ RSpec.describe Import do
     expect { subject.report }.to change { Payment.count }.from(0).to(1)
   end
 
-  it 'Creates a Payment Lines' do
+  it 'Creates Payment Lines' do
     expect { subject.payments }.to change { Line.count }.from(0).to(30)
   end
 
@@ -24,7 +24,7 @@ RSpec.describe Import do
     expect(subject.load.payment_id).to eq(subject.report.id)
   end
 
-  it 'Extracts report from Upload' do
+  it 'Extracts Report from Upload' do
     expect(subject.extract).to be_instance_of(Extract)
   end
 end

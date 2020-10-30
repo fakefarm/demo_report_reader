@@ -2,6 +2,6 @@
 
 class Payment < ApplicationRecord
   belongs_to :customer
-  has_many :lines
-  has_many :uploads
+  has_many :lines, dependent: :destroy
+  has_many :uploads, dependent: :destroy
 end

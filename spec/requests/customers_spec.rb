@@ -4,9 +4,9 @@ require 'rails_helper'
 
 RSpec.describe 'Customers', type: :request do
   describe 'GET /customers' do
-    it 'code' do
+    it 'ok' do
       get '/customers'
-      expect(response).to have_http_status(200)
+      expect(response).to have_http_status(:ok)
     end
   end
 end

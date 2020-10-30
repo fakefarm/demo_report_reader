@@ -16,4 +16,5 @@ RSpec.shared_context 'shared context', shared_context: :metadata do
   end
 
   let(:customer) { Customer.first }
+  let(:payment) { customer.payments.first }
 end

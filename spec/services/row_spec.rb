@@ -25,31 +25,33 @@ RSpec.describe Row do
     }
   end
 
-  it 'to_h' do
-    expect(subject.to_h).to eq(line_hash)
-  end
+  describe 'API' do
+    it '#to_h' do
+      expect(subject.to_h).to eq(line_hash)
+    end
 
-  it 'date' do
-    expect(subject.date).to eq(date)
-  end
+    it '#date' do
+      expect(subject.date).to eq(date)
+    end
 
-  it 'invoice' do
-    expect(subject.invoice).to eq(invoice)
-  end
+    it '#invoice' do
+      expect(subject.invoice).to eq(invoice)
+    end
 
-  it 'description' do
-    expect(subject.description).to eq(description)
-  end
+    it '#description' do
+      expect(subject.description).to eq(description)
+    end
 
-  it 'discount' do
-    expect(subject.discount).to eq(discount)
-  end
+    it '#discount' do
+      expect(subject.discount).to eq(discount)
+    end
 
-  it 'amount' do
-    expect(subject.amount).to eq(amount)
-  end
+    it '#amount' do
+      expect(subject.amount).to eq(amount)
+    end
 
-  it 'net' do
-    expect(subject.net).to eq(net)
+    it '#net' do
+      expect(subject.net).to eq(net)
+    end
   end
 end
