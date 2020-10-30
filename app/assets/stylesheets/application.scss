@@ -1,56 +1,6 @@
 @import "bulma";
-$gray: #aaa;
-$accent: #acffe2;
+@import "variables";
+@import "mixins";
+@import "mobile";
+@import "800";
 
-@mixin radius {
-  border-radius: 4px;
-}
-
-
-html {
-  background: #dad7c7;
-  padding: 3em;
-  border-top: 10px solid seagreen;
-}
-
-h1 {
-  font-size: 2em !important;
-}
-
-nav {
-  border-bottom: 1px solid $gray;
-}
-
-.main {
-  @include radius;
-  background: #e4fef0;
-  padding: 3em;
-  border-bottom: 20px solid $accent;
-  min-height: 30em;
-}
-
-
-.reports {
-  @include radius;
-  background: #eee;
-}
-
-.table {
-  @include radius;
-}
-
-@media (min-width: 800px) {
-  html {
-    background: #d4feeb;
-    border-top: 40px solid $accent;
-  }
-
-  h1 {
-    font-size: 2em !important;
-  }
-
-}
-
-.navbar {
-  background: none;
-}

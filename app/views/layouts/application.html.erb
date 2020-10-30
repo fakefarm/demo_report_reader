@@ -4,7 +4,6 @@
     <title>ReportReader</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -12,7 +11,8 @@
     <header class="section">
       <%= render 'shared/nav' %>
     </header>
-    <main class='container main'>
+    <main class='main'>
+      <%= render 'shared/notice' %>
       <%= yield %>
     </main>
   </body>

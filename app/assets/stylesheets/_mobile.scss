@@ -1,0 +1,38 @@
+@import "variables";
+@import "mixins";
+
+html {
+  background: $gray3;
+  padding: $size3;
+  border-top: 10px solid seagreen;
+}
+
+h1 {
+  font-size: $size2 !important;
+}
+
+nav {
+  border-bottom: 1px solid $gray1;
+}
+
+.main {
+  @include radius;
+  background: $accent2;
+  padding: $size3;
+  border-bottom: 20px solid $accent;
+  min-height: 30em;
+}
+
+.reports {
+  @include radius;
+  background: $gray2;
+}
+
+.table {
+  @include radius;
+}
+
+.navbar {
+  background: none;
+}
+

@@ -1,28 +1,32 @@
-<h1 class='title'>Search Reports</h1>
+<% if no_data? %>
+  <%= render 'shared/no_data' %>
+<% else -%>
+  <h1 class='title'>Search Reports</h1>
 
-<%= form_with(model: @search, local: true) do |form| %>
-  <% if @search.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@search.errors.count, "error") %> prohibited this @search from being saved:</h2>
+  <%= form_with(model: @search, local: true) do |form| %>
+    <% if @search.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@search.errors.count, "error") %> prohibited this @search from being saved:</h2>
 
-      <ul>
-        <% @search.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+        <ul>
+          <% @search.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="columns">
+      <div class="column">
+        <div class="field">
+          <%= form.text_field :term, class: 'input' %>
+        </div>
+      </div>
+      <div class="column">
+        <div class="actions">
+          <%= form.submit class: 'button is-primary' %>
+        </div>
+      </div>
     </div>
   <% end %>
-
-  <div class="columns">
-    <div class="column">
-      <div class="field">
-        <%= form.text_field :term, class: 'input' %>
-      </div>
-    </div>
-    <div class="column">
-      <div class="actions">
-        <%= form.submit class: 'button is-primary' %>
-      </div>
-    </div>
-  </div>
 <% end %>

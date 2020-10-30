@@ -1,0 +1,12 @@
+@import "variables";
+
+@media (min-width: 800px) {
+  html {
+    background: $accent3;
+    border-top: 40px solid $accent;
+  }
+
+  h1 {
+    font-size: $size2 !important;
+  }
+}
