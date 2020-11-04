@@ -2,29 +2,59 @@
 
 A demo app to upload files using active storage, process files in a background job, and recreate them with visual modifications. Specific extraction work is done through Tesseract, and visual creation using imageMagick.
 
-## watch the demo video
+## Assignment
+
+Task:
+Create a Rails app that will:
+
+- [x] Allow a user to upload a png image
+- [x] Use tesseract to extract and store the hOCR data for that image (can use the gem, can be done inline, bonus for async ala Resque)
+- [x] Mark up the image with bounding boxes around the words found from the hOCR data , should use imagemagick (gem or roll your own)
+- [x] Store the new image (and old image) and allow it to be downloaded
+- [x] Allow the user to search for possible words on the image via a text input (strech goal)
+- [x] Use Service Object when appropriate
+
+Expections:
+
+* Use Rails 
+* Use RSPEC 
+* User interface not a top priority
+* No user login needed, etc, just a bare bones type app
+
+## Watch the short demo video
 
 https://youtu.be/NUjO0AU21Ag
 
-## try it out
+## Browse the code
 
-Install clone
+The interesting components are in `app/services`.
+
+## Try it out
+
+Install & clone
 
 ```
   bundle install
+```
+
+
+```
+  rails db:create db:setup
 ```
 
 ```
   bundle exec rails
 ```
 
-## run the specs
+## Run the specs
+
+Test coverage includes: Services, Models, and Requests
 
 ```
   bundle exec rspec
 ```
 
-### Output
+### Test output
 ```
 Generate
   Creates an Upload
